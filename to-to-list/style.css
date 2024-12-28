@@ -1,0 +1,267 @@
+/* Root Variables for Theme Colors */
+:root {
+    --background-light: #f4f4f9;
+    --background-dark: #2c2c2c;
+    --text-light: #333;
+    --text-dark: #f4f4f9;
+    --primary: #007bff;
+    --danger: #dc3545;
+    --success: #28a745;
+    --warning: #ffc107;
+    --secondary: #6c757d;
+    --gradient: linear-gradient(135deg, #007bff, #6a11cb);
+    --box-shadow-light: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --box-shadow-dark: 0 4px 6px rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Reset and Smooth Transition */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--background-light);
+    color: var(--text-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow-y: hidden;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  body.dark-mode {
+    background-color: var(--background-dark);
+    color: var(--text-dark);
+  }
+  
+  /* Container Styling */
+  .todo-container {
+    background: #fff;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: var(--box-shadow-light);
+    width: 100%;
+    max-width: 500px;
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  body.dark-mode .todo-container {
+    background: #444;
+    box-shadow: var(--box-shadow-dark);
+  }
+  
+  h1 {
+    text-align: center;
+    color: inherit;
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  /* Input, Select, and Button Styling */
+  .input-container, .sort-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  input, select, button {
+    padding: 12px;
+    border: 1px solid var(--secondary);
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  input:focus, select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 5px var(--primary);
+  }
+  
+  /* Button Enhancements */
+  button {
+    cursor: pointer;
+    background: var(--gradient);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
+  }
+  
+  button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  button:active {
+    transform: scale(0.95);
+  }
+  
+  /* Clear Button */
+  .clear-btn {
+    background: var(--danger);
+    width: 100%;
+    margin-top: 10px;
+  }
+  
+  .clear-btn:hover {
+    background: #a71d2a;
+  }
+  
+  /* Task Items */
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    background: #f9f9f9;
+    cursor: grab;
+    box-shadow: var(--box-shadow-light);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  body.dark-mode li {
+    background: #333;
+    border-color: #555;
+  }
+  
+  li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  li.completed {
+    text-decoration: line-through;
+    color: #888;
+    background: rgba(40, 167, 69, 0.1);
+  }
+  
+  li .priority {
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  .priority.low {
+    background: var(--success);
+  }
+  
+  .priority.medium {
+    background: var(--warning);
+  }
+  
+  .priority.high {
+    background: var(--danger);
+  }
+  
+  /* Progress Bar */
+  .progress-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  progress {
+    width: 80%;
+    height: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: var(--background-light);
+  }
+  
+  progress::-webkit-progress-bar {
+    background-color: #ddd;
+    border-radius: 10px;
+  }
+  
+  progress::-webkit-progress-value {
+    background-color: var(--primary);
+    border-radius: 10px;
+  }
+  
+  /* Theme Toggle */
+  #theme-toggle {
+    background: var(--gradient);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background 0.3s, transform 0.2s;
+  }
+  
+  #theme-toggle:hover {
+    transform: scale(1.1);
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  li {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  .todo-container {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  .sort-btn {
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 16px; /* Compact padding */
+    font-size: 14px; /* Smaller text size */
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .sort-btn:hover {
+    background: #0056b3; /* Darker blue on hover */
+    transform: scale(1.05); /* Slight enlargement */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15); /* Soft shadow */
+  }
+  
+  .sort-btn:active {
+    transform: scale(0.95); /* Shrinks slightly on click */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Pressed shadow */
+  }
+  
